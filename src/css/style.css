@@ -1,67 +1,416 @@
 /* CSS Custom Properties Definitions */
+/* CSS Custom Properties Definitions */
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url('../fonts/RobotoSlab-Light.woff2') format('woff2'),
+      url('../fonts/RobotoSlab-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url('../fonts/RobotoSlab-Medium.woff2') format('woff2'),
+      url('../fonts/RobotoSlab-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url('../fonts/RobotoSlab-Regular.woff2') format('woff2'),
+      url('../fonts/RobotoSlab-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url('../fonts/RobotoSlab-Bold.woff2') format('woff2'),
+      url('../fonts/RobotoSlab-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url('../fonts/RobotoSlab-ExtraBold.woff2') format('woff2'),
+      url('../fonts/RobotoSlab-ExtraBold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url('../fonts/RobotoSlab-ExtraLight.woff2') format('woff2'),
+      url('../fonts/RobotoSlab-ExtraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url('../fonts/RobotoSlab-SemiBold.woff2') format('woff2'),
+      url('../fonts/RobotoSlab-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url('../fonts/RobotoSlab-Black.woff2') format('woff2'),
+      url('../fonts/RobotoSlab-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url('../fonts/RobotoSlab-Thin.woff2') format('woff2'),
+      url('../fonts/RobotoSlab-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Bold.woff2') format('woff2'),
+      url('../fonts/Roboto-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-MediumItalic.woff2') format('woff2'),
+      url('../fonts/Roboto-MediumItalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Thin.woff2') format('woff2'),
+      url('../fonts/Roboto-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-ThinItalic.woff2') format('woff2'),
+      url('../fonts/Roboto-ThinItalic.woff') format('woff');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-LightItalic.woff2') format('woff2'),
+      url('../fonts/Roboto-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Black.woff2') format('woff2'),
+      url('../fonts/Roboto-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Regular.woff2') format('woff2'),
+      url('../fonts/Roboto-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-BlackItalic.woff2') format('woff2'),
+      url('../fonts/Roboto-BlackItalic.woff') format('woff');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Italic.woff2') format('woff2'),
+      url('../fonts/Roboto-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Light.woff2') format('woff2'),
+      url('../fonts/Roboto-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Medium.woff2') format('woff2'),
+      url('../fonts/Roboto-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-BoldItalic.woff2') format('woff2'),
+      url('../fonts/Roboto-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
 
 :root {
-  --maxWidth-none: "none";
-  --maxWidth-xs: 20rem;
-  --maxWidth-sm: 24rem;
-  --maxWidth-md: 28rem;
-  --maxWidth-lg: 32rem;
-  --maxWidth-xl: 36rem;
-  --maxWidth-2xl: 42rem;
-  --maxWidth-3xl: 48rem;
-  --maxWidth-4xl: 56rem;
-  --maxWidth-full: "100%";
-  --maxWidth-wrapper: var(--maxWidth-2xl);
-  --spacing-px: "1px";
-  --spacing-0: 0;
-  --spacing-1: 0.25rem;
-  --spacing-2: 0.5rem;
-  --spacing-3: 0.75rem;
-  --spacing-4: 1rem;
-  --spacing-5: 1.25rem;
-  --spacing-6: 1.5rem;
-  --spacing-8: 2rem;
-  --spacing-10: 2.5rem;
-  --spacing-12: 3rem;
-  --spacing-16: 4rem;
-  --spacing-20: 5rem;
-  --spacing-24: 6rem;
-  --spacing-32: 8rem;
-  --fontFamily-sans: Montserrat, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --fontFamily-serif: "Merriweather", "Georgia", Cambria, "Times New Roman",
-    Times, serif;
+  
+  --fontFamily-sans: "Roboto Slab", system-ui, -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Montserrat, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+--fontFamily-serif: "Roboto Slab", "Georgia", Cambria, "Times New Roman",
+  Times, serif;
   --font-body: var(--fontFamily-serif);
   --font-heading: var(--fontFamily-sans);
+  --fontWeight-thin: 300;
   --fontWeight-normal: 400;
   --fontWeight-medium: 500;
   --fontWeight-semibold: 600;
   --fontWeight-bold: 700;
   --fontWeight-extrabold: 800;
   --fontWeight-black: 900;
-  --fontSize-root: 16px;
-  --lineHeight-none: 1;
-  --lineHeight-tight: 1.1;
-  --lineHeight-normal: 1.5;
-  --lineHeight-relaxed: 1.625;
-  /* 1.200 Minor Third Type Scale */
-  --fontSize-0: 0.833rem;
-  --fontSize-1: 1rem;
-  --fontSize-2: 1.2rem;
-  --fontSize-3: 1.44rem;
-  --fontSize-4: 1.728rem;
-  --fontSize-5: 2.074rem;
-  --fontSize-6: 2.488rem;
-  --fontSize-7: 2.986rem;
+ 
   --color-primary: #005b99;
   --color-text: #2e353f;
   --color-text-light: #4f5969;
   --color-heading: #1a202c;
   --color-heading-black: black;
   --color-accent: #d1dce5;
+
+	/* stylelint-disable */
+	/**
+	 * Baseline should always follow an 8pt or 4pt grid (if not an extreme
+	 * design). E.g. .25rem or .5rem
+	 *
+	 * @credit https://builttoadapt.io/intro-to-the-8-point-grid-system-d2573cde8632
+	 */
+	/* stylelint-enable */
+	--baseline-unit: 0.25rem;
+
+	/**
+	 * Gap is used in grid layouts and margins/paddings around elements
+	 */
+	--gap-micro: calc(var(--baseline-unit) * 2);
+	--gap-tiny: calc(var(--baseline-unit) * 4);
+	--gap-small: calc(var(--baseline-unit) * 6);
+	--gap: calc(var(--baseline-unit) * 8);
+	--gap-medium: calc(var(--baseline-unit) * 8);
+	--gap-large: calc(var(--baseline-unit) * 16);
+	--gap-huge: calc(var(--baseline-unit) * 32);
+
+	/**
+	 * Special gaps
+	 */
+
+	/* Grid gap: Gap between grid columns in flexbox grid */
+	--gap-grid: 0.5rem;
+
+	/* Container gap: used for left and right padding on the site main container */
+	--gap-container: 1.5rem;
+
+	@media (--bp-small) {
+		--gap-grid: 1rem;
+		--gap-container: 3rem;
+	}
+
+	@media (--bp-xlarge) {
+		--gap-grid: 1.25rem;
+		--gap-container: 1.25rem;
+	}
+
+	/**
+	 * Max Widths
+	 *
+	 * Naming: narrow, wide, full
+	 */
+	--l-max-width-narrow: 720px;
+	--l-max-width-wide: 1440px;
+	--l-max-width-full: none; /* 2560px; */
+
+
+	/**
+	 * Variables for easy access of fonts
+	 * Fonts are imported using @font-face in typography.scss
+	 */
+	--font-heading: "Circular Std", "Helvetica Neue", helvetica, arial, sans-serif;
+	--font-body: "Circular Std", "Helvetica Neue", helvetica, arial, sans-serif;
+
+	/**
+	 * Font sizes always expressed in rems!
+	 *
+	 * Naming: micro, tiny, small, medium (base), large, huge, mega
+	 */
+	--font-size-mini: 0.8rem;   /* 12 */ 
+	--font-size-tiny: 0.95rem;   /* 14 */
+	--font-size-small: 1.07rem; /* 16 */
+	--font-size-medium: 1.25rem;    /* 18 */
+	--font-size-big: 1.4rem;    /* 22 */
+	--font-size-large: 2.2rem; 	 /* 32 */
+	--font-size-huge: 2.9rem; 	 /* 42 */
+
+	/**
+	 * Line heights shall match their respective font-size and always
+	 * be calculated using the baseline-unit
+	 */
+	--line-height-tiny: calc(var(--baseline-unit) * 5.75);   /* 22 */
+	--line-height-small: calc(var(--baseline-unit) * 6);  /* 52 */
+	--line-height-medium: calc(var(--baseline-unit) * 7); /* 26 */
+	--line-height-large: calc(var(--baseline-unit) * 11.5);  /* 42 */
+	--line-height-huge: calc(var(--baseline-unit) * 14);  /* 52 */
+
+	/* Transitions */
+	--transition: 0.4s cubic-bezier(0.36, 0.64, 0.23, 0.94);
+	--transition-slow: 0.8s cubic-bezier(0.36, 0.64, 0.23, 0.94);
+	--transition-quick: 0.1s ease-in-out;
+
+	/* Animations */
+	--animation: 0.3s ease-in-out;
+	--animation-slow: 0.65s ease-in-out;
+	--animation-quick: 0.15s ease-in-out;
+
+	/* Drop shadows */
+	--drop-shadow-small: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+	--drop-shadow: 0 5px 40px 0 rgba(0, 0, 0, 0.2);
+	--drop-shadow-large: 0 5px 60px 0 rgba(0, 0, 0, 0.15);
+
+	--drop-shadow-boarder: 0 2px 10px 0 rgba(246, 243, 241, 1);
+	/* Radius – Example! */
+	--radius: 2px;
 }
 
+@custom-media --bp-micro ( min-width: 320px );
+@custom-media --bp-tiny ( min-width: 576px );
+@custom-media --bp-small ( min-width: 768px );
+@custom-media --bp-medium ( min-width: 992px );
+@custom-media --bp-large ( min-width: 1280px );
+@custom-media --bp-xlarge ( min-width: 1440px );
+@custom-media --bp-xxlarge ( min-width: 1680px );
+@custom-media --bp-huge ( min-width: 1920px );
+@custom-media --bp-mega ( min-width: 2560px );
+
+/* =============================================================================
+ # Mixins                                                                     #
+============================================================================= */
+
+/* Wrap outer containers (width, padding, center) */
+@define-mixin container {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: var(--l-max-width-full);
+	padding-left: var(--gap-container);
+	padding-right: var(--gap-container);
+	width: 100%;
+
+	@media (--bp-small) {
+		
+	}
+}
+
+
+/* Can be used for sections on pages, e.g. standard paddings for blocks. */
+@define-mixin section {
+	padding-bottom: var(--gap-medium);
+	padding-top: var(--gap-medium);
+
+	@media (--bp-small) {
+		padding-bottom: var(--gap-large);
+		padding-top: var(--gap-large);
+	}
+}
+
+/**
+ * Grid mixins
+ *
+ * @css
+ 	.grid-class {
+ 		@mixin flex-grid $align, $justify;
+ 	}
+ 	.col-class {
+ 		@mixin flex-column $col, $cols;
+ 		@mixin flex-column-offset $offset, $cols;
+ 	}
+
+ *
+ * @markup
+	<element class="grid-class">
+		<element class="col-class">
+			[text node]
+		</element>
+	</element>
+ *
+ */
+
+/**
+ * Flex grid mixin can be used to create a flexbox grid rapidly
+ */
+@define-mixin flex-grid $align: flex-start, $justify: flex-start {
+	align-items: $align;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: $justify;
+	margin-left: calc(var(--gap-grid) / 2 * -1);
+	margin-right: calc(var(--gap-grid) / 2 * -1);
+	width: calc(100% + var(--gap-grid));
+}
+
+/**
+ * Use the flex-column mixin together with the flex-grid mixin to build your
+ * flexbox grid systems
+ */
+@define-mixin flex-column $col: 12, $cols: 12 {
+	flex-basis: calc(( 100 / ( $cols / $col ) ) * 1%);
+	flex-grow: 0;
+	max-width: calc(( 100 / ($cols / $col ) ) * 1%);
+	padding-left: calc(var(--gap-grid) / 2);
+	padding-right: calc(var(--gap-grid) / 2);
+}
+
+/**
+ * Use the flex-column-offset mixin together with the flex-column mixin to
+ * create offsets (extra margin) in the grid.
+ *
+ * Please observe. margin-left/-right: auto can also
+ * be used outside this mixins.
+ */
+@define-mixin flex-column-offset $offset: 0, $cols: 12 {
+	margin-left: calc((100 / ($cols / $offset)) * 1%);
+}
 /* HTML elements */
 
 *,
@@ -113,12 +462,12 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: var(--fontWeight-bold);
+  font-weight: var(--fontWeight-thin);
   color: var(--color-heading);
 }
 
 h1 {
-  font-weight: var(--fontWeight-black);
+  font-weight: var(--fontWeight-thin);
   font-size: var(--fontSize-6);
   color: var(--color-heading-black);
 }
@@ -169,18 +518,17 @@ p {
 
 ul,
 ol {
+  margin-bottom: 0;
   margin-left: var(--spacing-0);
   margin-right: var(--spacing-0);
+  margin-top: 0;
   padding: var(--spacing-0);
-  margin-bottom: var(--spacing-8);
-  list-style-position: outside;
-  list-style-image: none;
+  list-style: unset;
 }
 
 ul li,
 ol li {
   padding-left: var(--spacing-0);
-  margin-bottom: calc(var(--spacing-8) / 2);
 }
 
 li > p {
@@ -193,7 +541,6 @@ li *:last-child {
 
 li > ul {
   margin-left: var(--spacing-8);
-  margin-top: calc(var(--spacing-8) / 2);
 }
 
 blockquote {
@@ -239,12 +586,63 @@ a:focus {
   text-decoration: none;
 }
 
+/* =============================================================================
+ # Site Footer                                                                #
+============================================================================= */
+
+.l-site-footer {
+@mixin container;}
+
+.l-site-footer__inner {
+	@mixin flex-grid;
+}
+
+/* Main Menu */
+.c-menu {
+  @mixin flex-column;
+}
+
+.c-menu ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  font-family: var(--font-heading);
+
+}
+
+.c-menu ul li {
+  color: #1a202c;
+  padding-left: .75rem;
+  padding-right: .75rem;
+}
+
+.c-menu ul li a {
+  color: var(--color-heading-black);
+  font-size: 1.1rem;
+  font-weight: 300;
+  text-decoration: none;
+}
 /* Custom classes */
 
+.l-page-hero {
+  @mixin container;
+}
+
+.c-page-hero {
+  @mixin flex-grid;
+}
+
+.c-page-hero__col-1 {
+  @mixin flex-column 5, 12;
+}
+
+.c-page-hero__col-2 {
+  @mixin flex-column 7, 12;
+}
+
+
 .global-wrapper {
-  margin: var(--spacing-0) auto;
-  max-width: var(--maxWidth-wrapper);
-  padding: var(--spacing-10) var(--spacing-5);
+  border-radius: var(--radius);;
 }
 
 .global-wrapper[data-is-root-path="true"] .bio {
