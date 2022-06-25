@@ -4,7 +4,6 @@ import parse from "html-react-parser"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import useMainMenu from "../hooks/use-mainmenu";
 
-
 const Layout = ({ isHomePage, children }) => {
   const {
     allWpPage: { edges },
