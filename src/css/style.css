@@ -194,7 +194,8 @@
   --fontFamily-sans: "Roboto Slab", system-ui, -apple-system, BlinkMacSystemFont,
   "Segoe UI", Montserrat, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
   "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
---fontFamily-serif: "Roboto Slab", "Georgia", Cambria, "Times New Roman",
+
+  --fontFamily-serif: "Roboto", "Georgia", Cambria, "Times New Roman",
   Times, serif;
   --font-body: var(--fontFamily-serif);
   --font-heading: var(--fontFamily-sans);
@@ -268,8 +269,6 @@
 	 * Variables for easy access of fonts
 	 * Fonts are imported using @font-face in typography.scss
 	 */
-	--font-heading: "Circular Std", "Helvetica Neue", helvetica, arial, sans-serif;
-	--font-body: "Circular Std", "Helvetica Neue", helvetica, arial, sans-serif;
 
 	/**
 	 * Font sizes always expressed in rems!
@@ -282,7 +281,7 @@
 	--font-size-medium: 1.25rem;    /* 18 */
 	--font-size-big: 1.4rem;    /* 22 */
 	--font-size-large: 2.2rem; 	 /* 32 */
-	--font-size-huge: 2.9rem; 	 /* 42 */
+	--font-size-huge: 4rem; 	 /* 42 */
 
 	/**
 	 * Line heights shall match their respective font-size and always
@@ -338,8 +337,16 @@
 	width: 100%;
 
 	@media (--bp-small) {
-		
+    padding-left: calc(var(--gap-large) * 1.25);
+	  padding-right: calc(var(--gap-large) * 1.25);
 	}
+
+
+  @media (--bp-xlarge) {
+    padding-left: var(--gap-huge);
+	  padding-right: var(--gap-huge);
+	}
+
 }
 
 
@@ -413,6 +420,9 @@
 }
 /* HTML elements */
 
+@import "page-hero.css";
+@import "typography.css";
+
 *,
 :after,
 :before {
@@ -453,8 +463,6 @@ h6 {
   font-family: var(--font-heading);
   margin-top: var(--spacing-12);
   margin-bottom: var(--spacing-6);
-  line-height: var(--lineHeight-tight);
-  letter-spacing: -0.025em;
 }
 
 h2,
@@ -490,6 +498,12 @@ h5 {
 
 h6 {
   font-size: var(--fontSize-1);
+}
+
+.c-heading {
+  font-size: var(--font-size-huge);
+  line-height: var(--line-height-huge);
+  letter-spacing: -1px;
 }
 
 h1 > a {
@@ -600,13 +614,16 @@ a:focus {
 /* Main Menu */
 .c-menu {
   @mixin flex-column;
+  
 }
 
 .c-menu ul {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   list-style-type: none;
   font-family: var(--font-heading);
+  padding-bottom: calc(var(--gap) * 0.75);;
+  padding-top: calc(var(--gap) * 0.75);
 
 }
 
@@ -619,27 +636,44 @@ a:focus {
 .c-menu ul li a {
   color: var(--color-heading-black);
   font-size: 1.1rem;
-  font-weight: 300;
+  font-weight: 400;
   text-decoration: none;
+  letter-spacing: -1px;
 }
 /* Custom classes */
 
 .l-page-hero {
   @mixin container;
+  padding-top: var(--gap);
 }
 
 .c-page-hero {
   @mixin flex-grid;
 }
 
-.c-page-hero__col-1 {
-  @mixin flex-column 5, 12;
+.c-page-hero__col-12 {
+  @mixin flex-column 12, 12;
 }
 
-.c-page-hero__col-2 {
-  @mixin flex-column 7, 12;
+.c-page-hero__col-4 {
+  @mixin flex-column 4, 12;
 }
 
+.c-page-hero__intro {
+  padding-top: var(--gap);
+}
+
+.c-page-hero__media {
+  padding-top: calc(var(--gap) * 1.5);
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 1rem;
+
+  .gatsby-image-wrapper {
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    border-radius: 3px;
+  }
+}
 
 .global-wrapper {
   border-radius: var(--radius);;

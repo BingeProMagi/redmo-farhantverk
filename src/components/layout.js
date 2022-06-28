@@ -20,10 +20,10 @@ const Layout = ({ isHomePage, children }) => {
                 intro
                 image {
                   sourceUrl
-                  gatsbyImage(width: 200)
+                  gatsbyImage(width: 1200)
                 }
                 imagebottom {
-                  gatsbyImage(width: 200)
+                  gatsbyImage(width: 1200)
                 }
               }
             }
@@ -57,23 +57,46 @@ const Layout = ({ isHomePage, children }) => {
       <div class="l-section">
         <div class="l-page-hero">
           <div class="c-page-hero">
-            <div class="c-page-hero__col-1">
-              <div class="c-page-hero__media-top">
-                <GatsbyImage image={image} alt="First painting"></GatsbyImage>
-              </div>
-
-              <div class="c-page-hero__media-bottom">
-                <GatsbyImage image={imageBottom} alt="First painting"></GatsbyImage>
-              </div>
+            <div class="c-page-hero__col-12">
+              <h1 class="c-heading">{parse(heading)}</h1>
             </div>
 
-            <div class="c-page-hero__col-2">
-              <h1 class="c-heading">{parse(heading)}</h1>
-              <div class="c-intro">
+            <div class="c-page-hero__col-4">
+              <div class="c-page-hero__intro c-intro">
                 <p>{parse(intro)}</p>
               </div>
             </div>
 
+            <div class="c-page-hero__col-4">
+              <div class="c-page-hero__intro">
+                <p>{parse(intro)}</p>
+              </div>
+            </div>
+
+            <div class="c-page-hero__col-4">
+              <div class="c-page-hero__button">
+                
+              </div>
+            </div>
+            
+            <div class="c-page-hero__col-12">
+              <div class="c-page-hero__media">
+                <GatsbyImage image={image} alt="First painting"></GatsbyImage>
+
+                <GatsbyImage image={imageBottom} alt="First painting"></GatsbyImage>
+
+                <GatsbyImage image={image} alt="First painting"></GatsbyImage>
+
+                <GatsbyImage image={imageBottom} alt="First painting"></GatsbyImage>
+
+                <GatsbyImage image={image} alt="First painting"></GatsbyImage>
+                
+                <GatsbyImage image={imageBottom} alt="First painting"></GatsbyImage>
+              </div>
+
+              <div class="c-page-hero__media">
+              </div>
+            </div>
           </div> 
 
         </div>
