@@ -1,0 +1,23 @@
+--font-size-tiny: 0.75rem;
+--font-size-small: 0.875rem;
+--font-size-medium: 1rem;
+--font-size-large: 2rem;
+--font-size-huge: 3rem;
+
+/**
+    * Line heights shall match their respective font-size and always
+    * be calculated using the baseline-unit
+    *
+    */
+--line-height-tiny: calc(var(--baseline-unit)*4);
+--line-height-small: calc(var(--baseline-unit)*6);
+--line-height-medium: calc(var(--baseline-unit)*7);
+--line-height-large: calc(var(--baseline-unit)*8);
+--line-height-huge: calc(var(--baseline-unit)*9);
+
+
+.c-heading {
+    font-size: 3rem;
+    line-height: var(--line-height-huge);
+    font-weight: 800;
+}

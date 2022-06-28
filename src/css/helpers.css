@@ -1,0 +1,50 @@
+.h-aspect-ratio {
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+
+	&::before {
+		content: "";
+		display: inline-block;
+		height: 0;
+		padding-top: 100%; /* initial ratio of 1:1*/
+	}
+}
+
+/**
+ * Different standard ratios.
+ * Remove or add new if that's needed in this project
+ * E.g. h-aspect-ratio--card is a explanatory modifier name
+ */
+
+ .h-aspect-ratio--2-1::before {
+	padding-top: 50%;
+}
+
+.h-aspect-ratio--1-2::before {
+	padding-top: 200%;
+}
+
+.h-aspect-ratio--4-3::before {
+	padding-top: 75%;
+}
+
+.h-aspect-ratio--card-portrait::before {
+	padding-top: 3/2 * 100%;
+}
+
+.h-aspect-ratio--card-landscape::before {
+	padding-top: 2/3 * 100%;
+}
+
+.h-aspect-ratio--3-4::before {
+	padding-top: 4/3 * 100%;
+}
+
+.h-aspect-ratio--16-9::before {
+	padding-top: 56.25%;
+}
+
+.h-aspect-ratio--9-16::before {
+	padding-top: 16/9 * 100%;
+}
