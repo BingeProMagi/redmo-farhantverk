@@ -74,7 +74,7 @@ module.exports = {
         short_name: `Redmo Färghantverk`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#AB4E52`,
         display: `minimal-ui`,
         icon: `content/assets/gatsby-icon.png`,
       },

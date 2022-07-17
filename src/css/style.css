@@ -216,6 +216,8 @@
 
   --black: #111111;
   --white: #ffffff;
+  --red: #AB4E52;
+  --beige: #FCF8F5;
 
 	/* stylelint-disable */
 	/**
@@ -628,8 +630,9 @@ a:focus {
   transition: color .3s linear, background-color .3s linear;
 
   &:hover {
-    background-color: var(--black);
-    color: var(--white);
+    background-color: var(--red);
+    border-color: var(--red);
+    color: var(--beige);
   }
 }
 
