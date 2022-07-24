@@ -3,7 +3,10 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import parse from "html-react-parser"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import useMainMenu from "../hooks/use-mainmenu";
-import Hamburger from "../../content/hamburger.svg";
+import Logo from "../../content/logga-2.svg";
+import Instagram from "../../content/instagram.svg";
+import Tele from "../../content/tele.svg";
+import Mail from "../../content/mail.svg";
 
 const Layout = ({ isHomePage, children }) => {
   const {
@@ -44,6 +47,15 @@ const Layout = ({ isHomePage, children }) => {
                 }
               }
             }
+            contact_me {
+              contact {
+                email
+                instagram
+                telephone
+                text
+                title
+              }
+            }
           }
         }
     }
@@ -60,11 +72,14 @@ const Layout = ({ isHomePage, children }) => {
   const intro = edges[0].node.hero.pageHero.intro;
   const buttonUrl = edges[0].node.hero.pageHero.button.url;
   const buttonTitle = edges[0].node.hero.pageHero.button.title;
-
+  const contact = edges[0].node.contact_me.contact;
+  const email = "mailto:"+contact.email;
+  const tele = "tel:"+contact.telephone;
   return (
     <div class="global-wrapper">
       <div class="l-site-footer">
         <header class="l-site-footer__inner">
+          <div class="c-logo"><Logo/></div>
           <div class="c-menu c-menu--desktop">
             <ul class="c-menu__item">
             {
@@ -73,7 +88,7 @@ const Layout = ({ isHomePage, children }) => {
               }
             </ul>
           </div>
-          <div class="c-hamburger"><Hamburger/></div>
+          <div class="c-instagram"><Link to="instagram"><Instagram/></Link></div>
         </header>
       </div>
 
@@ -121,8 +136,61 @@ const Layout = ({ isHomePage, children }) => {
           </div> 
 
         </div>
+      </div>
 
-      </div>    
+      <div class="l-section">
+			  <div class="l-about-me">
+					<div class="c-about-me">
+						<div class="c-about-me__col-5">
+							<h2 class="c-title">Om mig</h2>
+
+							<div class="c-text">
+								<p>{parse(intro)}</p>
+							</div>
+						</div>
+
+						<div class="c-about-me__col-6">
+							<GatsbyImage image={imageThree} alt="First painting"></GatsbyImage>
+						</div>
+					</div>
+				</div>
+      </div>
+
+			<div class="l-section">
+			  <div id="projekt" class="l-project">
+
+					
+				</div>
+      </div>
+
+      <div class="l-section">
+			  <div id="kontakt" class="l-contact">
+          <div class="c-contact">
+            <div class="c-contact__inner">
+              <div class="c-contact__container">  
+                <div class="c-contact__title">
+                  { <h2 class="c-title c-title--white">{contact.title}</h2>}
+                </div>
+
+                <div class="c-contact__text">
+                  <div class="c-text c-text--white">
+                    <p>{contact.text}</p>
+                  </div>
+                </div>
+                
+                <div class="c-contact-at">
+                  <div class="c-contact-at__item"><Link class="c-contact-at__item-link" to={email}><span><Mail/></span>{contact.email}</Link></div>
+
+                  <div class="c-contact-at__item"><Link class="c-contact-at__item-link" to={tele}><span><Tele/></span>{contact.telephone}</Link></div>
+
+                  <div class="c-contact-at__item"><Link class="c-contact-at__item-link" to={contact.instagram}><span><Instagram/></span>Instagram</Link></div>
+                </div>
+              </div>
+            </div>
+          </div>        
+				</div>
+      </div> 
+
       <footer>
       </footer>
   </div>
