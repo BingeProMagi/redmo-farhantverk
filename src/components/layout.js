@@ -56,6 +56,21 @@ const Layout = ({ isHomePage, children }) => {
                 title
               }
             }
+            project_list {
+              project {
+                aboutLabel
+                aboutText
+                fieldGroupName
+                title
+                workLabel
+                gallery {
+                  gatsbyImage(aspectRatio: 1, width: 1200)
+                }
+                workList {
+                  listItem
+                }
+              }
+            }
           }
         }
     }
@@ -75,6 +90,8 @@ const Layout = ({ isHomePage, children }) => {
   const contact = edges[0].node.contact_me.contact;
   const email = "mailto:"+contact.email;
   const tele = "tel:"+contact.telephone;
+  const projects = edges[0].node.project_list.project;
+  console.log(imageFive);
   return (
     <div class="global-wrapper">
       <div class="l-site-footer">
@@ -83,9 +100,8 @@ const Layout = ({ isHomePage, children }) => {
           <div class="c-menu c-menu--desktop">
             <ul class="c-menu__item">
             {
-              menu.map(item => (
-                <li><Link to={item.url}>{item.label}</Link></li> ))
-              }
+              menu.map(item => (<li><Link to={item.url}>{item.label}</Link></li> ))
+            }
             </ul>
           </div>
           <div class="c-instagram"><Link to="instagram"><Instagram/></Link></div>
@@ -135,6 +151,54 @@ const Layout = ({ isHomePage, children }) => {
             </div>
           </div> 
 
+        </div>
+      </div>
+
+      <div class="l-section">
+        <div id="projekt" class="l-project">
+          {
+              projects.map(project => (
+            
+          
+					<div class="c-project">
+            <div class="c-project__title">
+              <h2 class="c-heading">{project.title}</h2>
+            </div>
+
+            <div class="c-project__work">
+              <div class="c-work__label">
+                <span>{project.workLabel}</span>
+              </div>
+              {
+                project.workList.map(work => (
+                  
+                  <div class="c-work__item c-list">
+                    <p>{work.listItem}</p>
+                  </div>
+                ))              
+              }
+            </div>
+
+            <div class="c-project__image">
+              <div class="c-project__image-container">
+                {/* aspect ratio 0.95 */ console.log(project.gallery[0].gatsbyImage)}
+
+                <GatsbyImage image={project.gallery[0].gatsbyImage} alt="First painting"></GatsbyImage>
+              </div>
+            </div>
+
+            <div class="c-info__label">
+              <span>{project.aboutLabel}</span>
+            </div>
+
+            <div class="c-info__item c-list">
+              <p>{project.aboutText}</p>
+            </div>
+
+
+
+          </div>
+          ))}
         </div>
       </div>
 

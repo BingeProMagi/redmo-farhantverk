@@ -292,11 +292,12 @@
 	 * Line heights shall match their respective font-size and always
 	 * be calculated using the baseline-unit
 	 */
+  --line-height-mini: calc(var(--baseline-unit) * 5);   /* 22 */
 	--line-height-tiny: calc(var(--baseline-unit) * 5.75);   /* 22 */
 	--line-height-small: calc(var(--baseline-unit) * 6);  /* 52 */
 	--line-height-medium: calc(var(--baseline-unit) * 9); /* 26 */
 	--line-height-large: calc(var(--baseline-unit) * 11.5);  /* 42 */
-	--line-height-huge: calc(var(--baseline-unit) * 14);  /* 52 */
+	--line-height-huge: calc(var(--baseline-unit) * 16);  /* 52 */
 
 	/* Transitions */
 	--transition: 0.4s cubic-bezier(0.36, 0.64, 0.23, 0.94);
@@ -533,6 +534,13 @@ h6 {
   line-height: var(--line-height-tiny);
 }
 
+.c-list {
+  p {
+    font-size: var(--font-size-mini);
+    line-height: var(--line-height-mini);
+  }
+}
+
 .c-text--white p {
   color: var(--beige);
 }
@@ -704,6 +712,10 @@ a:focus {
   svg {
     height: 1.5rem;
     width: 1.5rem;
+    transition: fill .3s linear;
+    &:hover {
+      fill: var(--red);
+    }
 
     @media --bp--small {
       height: 2em;
@@ -760,8 +772,8 @@ a:focus {
   padding-right: .75rem;
 }
 
-.c-menu ul li:hover {
-  text-decoration-line: underline;
+.c-menu ul li a:hover {
+  color: var(--red);
 }
 
 .c-menu ul li a {
@@ -769,6 +781,7 @@ a:focus {
   font-size: 1.1rem;
   font-weight: 300;
   text-decoration: none;
+  transition: color .4s linear;
 }
 
 
@@ -796,6 +809,7 @@ a:focus {
 }
 
 .c-instagram {
+
 
 }
 
@@ -899,7 +913,6 @@ a:focus {
     margin-left: 0;
     width: 100%;
   }
-
 }
 
 .c-contact__title {
@@ -965,14 +978,61 @@ a:focus {
     display: flex;
     color: var(--beige);
     text-decoration-line: unset;
-
+    &:hover {
+      svg {
+        transform: translateY(-.25em);
+        
+      }
+    }
     svg {
       fill: var(--beige);
       height: 1.5rem;
       width: 1.5rem;
       margin-right: calc(var(--gap) / 4);
+      transition: transform .3s ease-in;
     }
   }
+}
+
+.l-project {
+  @mixin container;
+}
+
+.c-project {
+  @mixin flex-grid;
+  padding-bottom: var(--gap-huge);
+  padding-top: var(--gap-huge);
+}
+
+.project__title {
+  @mixin flex-column 12, 12;
+}
+
+.c-project__work {
+  @mixin flex-column 5, 12;
+  padding-top: calc(var(--gap) * 2.5);
+}
+
+.c-project__image {
+  @mixin flex-column 6, 12;
+  padding-top: calc(var(--gap) * 2.5);
+}
+
+.c-info__label {
+  @mixin flex-column 5, 12;
+  padding-top: calc(var(--gap) * 1.5);
+}
+
+.c-info__item {
+  @mixin flex-column 6, 12;
+  padding-top: calc(var(--gap) * 1.5);
+}
+
+.c-work__label, .c-info__label {
+  font-size: var(--font-size-mini);
+  line-height: var(--line-height-mini);
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
 .global-wrapper {
