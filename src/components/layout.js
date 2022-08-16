@@ -7,6 +7,7 @@ import Logo from "../../content/logga-2.svg";
 import Instagram from "../../content/instagram.svg";
 import Tele from "../../content/tele.svg";
 import Mail from "../../content/mail.svg";
+import Seo from "./seo";
 
 const Layout = ({ isHomePage, children }) => {
   const {
@@ -92,6 +93,7 @@ const Layout = ({ isHomePage, children }) => {
   const tele = "tel:"+contact.telephone;
   const projects = edges[0].node.project_list.project;
   console.log(imageFive);
+  Seo();
   return (
     <div class="global-wrapper">
       <div class="l-site-footer">
@@ -155,17 +157,46 @@ const Layout = ({ isHomePage, children }) => {
       </div>
 
       <div class="l-section">
-        <div id="projekt" class="l-project">
+			  <div id="about" class="l-about-me">
+					<div class="c-about-me">
+						<div class="c-about-me__col-4">
+              <div class="c-about-content">
+                <div class="c-about-title">
+                  <h2 class="c-heading c-heading--center">Om mig</h2>
+                </div>
+                
+                <div class="c-about-text">
+                  <div class="c-text">
+                    <p>{parse(intro)}</p>
+                  </div>
+                </div>
+              </div>
+						</div>
+
+						<div class="c-about-me__col-10">
+							<GatsbyImage image={imageThree} alt="First painting"></GatsbyImage>
+						</div>
+					</div>
+				</div>
+      </div>
+
+      <div class="l-section">
+        <div id="project" class="l-project">
+          <h2 class="c-heading c-heading--center">Projekt</h2>
           {
-              projects.map(project => (
+              projects.map((project, index) => (
             
-          
-					<div class="c-project">
+            
+            <div className="c-project c-project--border-bottom">
+
+
+            <h1>{index ? 'c-project--border-bottom' : ''}</h1>
             <div class="c-project__title">
-              <h2 class="c-heading">{project.title}</h2>
+              <h2 class="c-title--project c-hide-desk">{project.title}</h2>
             </div>
 
             <div class="c-project__work">
+              <h2 class="c-title--project c-hide-mobile">{project.title}</h2>
               <div class="c-work__label">
                 <span>{project.workLabel}</span>
               </div>
@@ -203,32 +234,7 @@ const Layout = ({ isHomePage, children }) => {
       </div>
 
       <div class="l-section">
-			  <div class="l-about-me">
-					<div class="c-about-me">
-						<div class="c-about-me__col-5">
-							<h2 class="c-title">Om mig</h2>
-
-							<div class="c-text">
-								<p>{parse(intro)}</p>
-							</div>
-						</div>
-
-						<div class="c-about-me__col-6">
-							<GatsbyImage image={imageThree} alt="First painting"></GatsbyImage>
-						</div>
-					</div>
-				</div>
-      </div>
-
-			<div class="l-section">
-			  <div id="projekt" class="l-project">
-
-					
-				</div>
-      </div>
-
-      <div class="l-section">
-			  <div id="kontakt" class="l-contact">
+			  <div id="contact" class="l-contact">
           <div class="c-contact">
             <div class="c-contact__inner">
               <div class="c-contact__container">  
