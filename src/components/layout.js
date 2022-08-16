@@ -7,7 +7,6 @@ import Logo from "../../content/logga-2.svg";
 import Instagram from "../../content/instagram.svg";
 import Tele from "../../content/tele.svg";
 import Mail from "../../content/mail.svg";
-import Seo from "./seo";
 
 const Layout = ({ isHomePage, children }) => {
   const {
