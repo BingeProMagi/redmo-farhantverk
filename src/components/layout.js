@@ -71,6 +71,9 @@ const Layout = ({ isHomePage, children }) => {
                 }
               }
             }
+            instagram {
+              instagram
+            }
           }
         }
     }
@@ -91,6 +94,7 @@ const Layout = ({ isHomePage, children }) => {
   const email = "mailto:"+contact.email;
   const tele = "tel:"+contact.telephone;
   const projects = edges[0].node.project_list.project;
+  const instagram = edges[0].node.instagram.instagram;
   return (
     <div class="global-wrapper">
       <div class="l-site-footer">
@@ -103,7 +107,7 @@ const Layout = ({ isHomePage, children }) => {
             }
             </ul>
           </div>
-          <div class="c-instagram"><Link to="instagram"><Instagram/></Link></div>
+          <div class="c-instagram"><Link to={instagram}><Instagram/></Link></div>
         </header>
       </div>
 
