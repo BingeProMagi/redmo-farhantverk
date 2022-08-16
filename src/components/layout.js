@@ -91,8 +91,6 @@ const Layout = ({ isHomePage, children }) => {
   const email = "mailto:"+contact.email;
   const tele = "tel:"+contact.telephone;
   const projects = edges[0].node.project_list.project;
-  console.log(imageFive);
-  Seo();
   return (
     <div class="global-wrapper">
       <div class="l-site-footer">
