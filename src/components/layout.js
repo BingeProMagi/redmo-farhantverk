@@ -7,8 +7,10 @@ import Logo from "../../content/logga-2.svg";
 import Instagram from "../../content/instagram.svg";
 import Tele from "../../content/tele.svg";
 import Mail from "../../content/mail.svg";
+import Seo from "./seo";
 
 const Layout = ({ isHomePage, children }) => {
+  
   const {
     allWpPage: { edges },
   } = useStaticQuery(graphql`
@@ -107,7 +109,10 @@ const Layout = ({ isHomePage, children }) => {
   const aboutMe = edges[0].node.aboutMe.aboutMe;
   const instagram = edges[0].node.instagram.instagram;
   return (
+    
     <div class="global-wrapper">
+      <Seo title="" desc="test" lang="sv"/>
+      
       <div class="l-site-footer">
         <header class="l-site-footer__inner">
           <div class="c-logo"><Logo/></div>
