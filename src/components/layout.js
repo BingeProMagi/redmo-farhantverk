@@ -47,6 +47,15 @@ const Layout = ({ isHomePage, children }) => {
                 }
               }
             }
+            aboutMe {
+              aboutMe {
+                title
+                text
+                image {
+                  gatsbyImage(aspectRatio: 1, width: 1200)
+                }
+              }
+            }
             contact_me {
               contact {
                 email
@@ -79,6 +88,7 @@ const Layout = ({ isHomePage, children }) => {
     }
   }
   `)
+  // TODO: Banta detta 
   const menu = useMainMenu();
   const image = getImage(edges[0].node.hero.pageHero.image.gatsbyImage);
   const imageTwo = getImage(edges[0].node.hero.pageHero.imagetwo.gatsbyImage);
@@ -94,6 +104,7 @@ const Layout = ({ isHomePage, children }) => {
   const email = "mailto:"+contact.email;
   const tele = "tel:"+contact.telephone;
   const projects = edges[0].node.project_list.project;
+  const aboutMe = edges[0].node.aboutMe.aboutMe;
   const instagram = edges[0].node.instagram.instagram;
   return (
     <div class="global-wrapper">
@@ -160,23 +171,29 @@ const Layout = ({ isHomePage, children }) => {
       <div class="l-section">
 			  <div id="about" class="l-about-me">
 					<div class="c-about-me">
-						<div class="c-about-me__col-4">
+						<div class="c-about-me__col-12">
               <div class="c-about-content">
                 <div class="c-about-title">
-                  <h2 class="c-heading c-heading--center">Om mig</h2>
-                </div>
-                
-                <div class="c-about-text">
-                  <div class="c-text">
-                    <p>{parse(intro)}</p>
-                  </div>
+                  <h2 class="c-heading">{aboutMe.title}</h2>
                 </div>
               </div>
 						</div>
 
-						<div class="c-about-me__col-10">
-							<GatsbyImage image={imageThree} alt="First painting"></GatsbyImage>
+						<div class="c-about-me__col-6">
+              <div class="c-about-me__image">
+							  <GatsbyImage image={aboutMe.image.gatsbyImage} alt="First painting"></GatsbyImage>
+              </div>
 						</div>
+            <div class="c-about-me__col-5">
+              <div class="c-about-me__boarder">
+                <div class="c-boarder"></div>
+              </div>
+              <div class="c-about-text">
+                <div class="c-text">
+                  <p>{aboutMe.text}</p>
+                </div>
+              </div>
+            </div>
 					</div>
 				</div>
       </div>
