@@ -568,8 +568,8 @@ h6 {
 
 .c-list {
   p {
-    font-size: var(--font-size-mini);
-    line-height: var(--line-height-mini);
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-small);
   }
 }
 
@@ -1006,7 +1006,6 @@ a:focus {
 
 .l-contact {
   @mixin container;
-  padding-bottom: calc(var(--gap) * 2.5);
   padding-top: calc(var(--gap) * 2);
   
   @media (--bp-small) {
@@ -1138,10 +1137,11 @@ a:focus {
 }
 
 .c-project__work {
-  @mixin flex-column 6, 12;
+  @mixin flex-column 12, 12;
   padding-top: calc(var(--gap));
   
   @media (--bp-small) {
+    @mixin flex-column 6, 12;
     padding-top: 0;
   }
 }
@@ -1156,10 +1156,11 @@ a:focus {
 
 
 .c-project__image {
-  @mixin flex-column 6, 12;
+  @mixin flex-column 12, 12;
   padding-top: calc(var(--gap));
 
   @media (--bp-small) {
+    @mixin flex-column 6, 12;
     padding-top: 0;
   }
 
@@ -1188,8 +1189,8 @@ a:focus {
 }
 
 .c-work__label, .c-info__label {
-  font-size: var(--font-size-mini);
-  line-height: var(--line-height-mini);
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
   font-weight: 500;
   text-transform: uppercase;
 }

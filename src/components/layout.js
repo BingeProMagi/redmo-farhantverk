@@ -226,9 +226,9 @@ const Layout = ({ isHomePage, children }) => {
               {
                 project.workList.map(work => (
                   
-                  <div class="c-work__item c-list">
-                    <p>{work.listItem}</p>
-                  </div>
+                  <ul class="c-work__item c-list">
+                    <li>{work.listItem}</li>
+                  </ul>
                 ))              
               }
             </div>
