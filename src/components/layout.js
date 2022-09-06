@@ -7,6 +7,7 @@ import Logo from "../../content/logga-2.svg";
 import Instagram from "../../content/instagram.svg";
 import Tele from "../../content/tele.svg";
 import Mail from "../../content/mail.svg";
+//import Background from "../../content/test-01.svg";
 import Seo from "./seo";
 
 const Layout = ({ isHomePage, children }) => {
@@ -68,12 +69,11 @@ const Layout = ({ isHomePage, children }) => {
               }
             }
             project_list {
+              title
               project {
                 aboutLabel
-                aboutText
                 fieldGroupName
                 title
-                workLabel
                 gallery {
                   gatsbyImage(aspectRatio: 1, width: 1200)
                 }
@@ -106,8 +106,10 @@ const Layout = ({ isHomePage, children }) => {
   const email = "mailto:"+contact.email;
   const tele = "tel:"+contact.telephone;
   const projects = edges[0].node.project_list.project;
+  const projectsTitle = edges[0].node.project_list;
   const aboutMe = edges[0].node.aboutMe.aboutMe;
   const instagram = edges[0].node.instagram.instagram;
+
   return (
     
     <div class="global-wrapper">
@@ -205,7 +207,7 @@ const Layout = ({ isHomePage, children }) => {
 
       <div class="l-section">
         <div id="project" class="l-project">
-          <h2 class="c-heading c-heading--center">Projekt</h2>
+          <h2 class="c-heading c-heading--center">{ projectsTitle.title }</h2>
           {
               projects.map((project, index) => (
             
@@ -215,27 +217,15 @@ const Layout = ({ isHomePage, children }) => {
 
             <h1>{index ? 'c-project--border-bottom' : ''}</h1>
             <div class="c-project__title">
-              <h2 class="c-title--project c-hide-desk">{project.title}</h2>
+              <h2 class="c-title--project c-hide-desk"></h2>
             </div>
 
             <div class="c-project__work">
               <h2 class="c-title--project c-hide-mobile">{project.title}</h2>
-              <div class="c-work__label">
-                <span>{project.workLabel}</span>
-              </div>
-              {
-                project.workList.map(work => (
-                  
-                  <ul class="c-work__item c-list">
-                    <li>{work.listItem}</li>
-                  </ul>
-                ))              
-              }
             </div>
 
             <div class="c-project__image">
               <div class="c-project__image-container">
-                {/* aspect ratio 0.95 */ console.log(project.gallery[0].gatsbyImage)}
 
                 <GatsbyImage image={project.gallery[0].gatsbyImage} alt="First painting"></GatsbyImage>
               </div>
@@ -246,7 +236,14 @@ const Layout = ({ isHomePage, children }) => {
             </div>
 
             <div class="c-info__item c-list">
-              <p>{project.aboutText}</p>
+              <ul class="c-work__item c-list">
+              {
+                project.workList.map(work => (
+                  
+                  <li>{work.listItem}</li>
+                  ))              
+                }
+                </ul>
             </div>
 
 
@@ -257,6 +254,7 @@ const Layout = ({ isHomePage, children }) => {
       </div>
 
       <div class="l-section">
+
 			  <div id="contact" class="l-contact">
           <div class="c-contact">
             <div class="c-contact__inner">
