@@ -186,7 +186,7 @@ const Layout = ({ isHomePage, children }) => {
 						<div className="c-about-me__col-12">
               <div className="c-about-content">
                 <div className="c-about-title">
-                  <Title className="c-heading" children={aboutMe.title}/>
+                  <Title classname="c-heading" children={aboutMe.title}/>
                 </div>
               </div>
 						</div>
@@ -258,7 +258,6 @@ const Layout = ({ isHomePage, children }) => {
       </div>
 
       <div className="l-section">
-
 			  <div id="kontakt" className="l-contact">
           <div className="c-contact">
             <div className="c-contact__inner">
