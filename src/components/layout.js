@@ -1,14 +1,15 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import parse from "html-react-parser"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import useMainMenu from "../hooks/use-mainmenu";
 import Logo from "../../content/logga-2.svg";
 import Instagram from "../../content/instagram.svg";
 import Tele from "../../content/tele.svg";
 import Mail from "../../content/mail.svg";
-//import Background from "../../content/test-01.svg";
-import Seo from "./seo";
+import Heading from "./Heading";
+import Paragraph from "./Paragraph";
+import Title from "./Title";
 
 const Layout = ({ isHomePage, children }) => {
   
@@ -92,16 +93,7 @@ const Layout = ({ isHomePage, children }) => {
   `)
   // TODO: Banta detta 
   const menu = useMainMenu();
-  const image = getImage(edges[0].node.hero.pageHero.image.gatsbyImage);
-  const imageTwo = getImage(edges[0].node.hero.pageHero.imagetwo.gatsbyImage);
-  const imageThree = getImage(edges[0].node.hero.pageHero.imagethree.gatsbyImage);
-  const imageFour = getImage(edges[0].node.hero.pageHero.imagefour.gatsbyImage);
-  const imageFive = getImage(edges[0].node.hero.pageHero.imagefive.gatsbyImage);
-  const imageSix = getImage(edges[0].node.hero.pageHero.imagesix.gatsbyImage);
-  const heading = edges[0].node.hero.pageHero.heading;
-  const intro = edges[0].node.hero.pageHero.intro;
-  const buttonUrl = edges[0].node.hero.pageHero.button.url;
-  const buttonTitle = edges[0].node.hero.pageHero.button.title;
+  const pageHero = edges[0].node.hero.pageHero;
   const contact = edges[0].node.contact_me.contact;
   const email = "mailto:"+contact.email;
   const tele = "tel:"+contact.telephone;
@@ -112,60 +104,73 @@ const Layout = ({ isHomePage, children }) => {
 
   return (
     
-    <div class="global-wrapper">
-      <Seo title="" desc="test" lang="sv"/>
-      
-      <div class="l-site-footer">
-        <header class="l-site-footer__inner">
-          <div class="c-logo"><Logo/></div>
-          <div class="c-menu c-menu--desktop">
-            <ul class="c-menu__item">
-            {
-              menu.map(item => (<li><Link to={item.url}>{item.label}</Link></li> ))
-            }
-            </ul>
+    <div className="global-wrapper">
+      <div className="l-site-footer">
+        <header className="l-site-footer__inner">
+          <div className="c-logo"><Logo/></div>
+          <div className="c-menu c-menu--desktop">
+            { (menu) && (
+              <ul className="c-menu__item">
+              {
+                menu.map(item => (<li><Link to={item.url}>{item.label}</Link></li> ))
+              }
+              </ul>
+            )}
           </div>
-          <div class="c-instagram"><Link to={instagram}><Instagram/></Link></div>
+          { (instagram) && (
+            <div className="c-instagram"><Link to={instagram}><Instagram/></Link></div>
+          )}
         </header>
       </div>
 
       
-      <div class="l-section">
-        <div class="l-page-hero">
-          <div class="c-page-hero">
-            <div class="c-page-hero__col-12">
-              <h1 class="c-heading">{parse(heading)}</h1>
+      <div className="l-section">
+        <div className="l-page-hero">
+          <div className="c-page-hero">
+            <div className="c-page-hero__col-12">
+              <Heading children={pageHero.heading} classname="c-heading" />
             </div>
 
-            <div class="c-page-hero__col--intro">
-              <div class="c-page-hero__intro c-intro">
-                <p>{parse(intro)}</p>
-              </div>
+            <div className="c-page-hero__col--intro">
+              { (pageHero.intro) && (
+                <div className="c-page-hero__intro c-intro">
+                  <Paragraph children={pageHero.intro}/>
+                </div>
+              )}
 
-              <div class="c-page-hero__button">
-                  <Link to={parse(buttonUrl)} className="c-button"><span class="c-button__inner">{parse(buttonTitle)}</span></Link> 
-              </div>
+              { (pageHero.button.url) && (
+                <div className="c-page-hero__button">
+                  <Link to={parse(pageHero.button.url)} className="c-button"><span className="c-button__inner" dangerouslySetInnerHTML={{__html: pageHero.button.title }}/></Link> 
+                </div>
+              ) }
             </div>
 
-            <div class="c-page-hero__col-button">
-              
+            <div className="c-page-hero__col-button">
+
             </div>
             
-            <div class="c-page-hero__col-12">
-              <div class="c-page-hero__media">
-                <div class="c-page-hero__mobile-scroll">
-                  <div class="c-page-hero__media-inner">
-                    <GatsbyImage image={image} alt="First painting"></GatsbyImage>
-
-                    <GatsbyImage image={imageTwo} alt="First painting"></GatsbyImage>
-
-                    <GatsbyImage image={imageThree} alt="First painting"></GatsbyImage>
-
-                    <GatsbyImage image={imageFour} alt="First painting"></GatsbyImage>
-
-                    <GatsbyImage image={imageFive} alt="First painting"></GatsbyImage>
-
-                    <GatsbyImage image={imageSix} alt="First painting"></GatsbyImage>
+            <div className="c-page-hero__col-12">
+              <div className="c-page-hero__media">
+                <div className="c-page-hero__mobile-scroll">
+                  <div className="c-page-hero__media-inner">
+                    { (pageHero.image.gatsbyImage) && (  
+                      <GatsbyImage image={pageHero.image.gatsbyImage} alt="First painting"></GatsbyImage>
+                    )}
+                    { (pageHero.imagetwo.gatsbyImage) && (
+                      <GatsbyImage image={pageHero.imagetwo.gatsbyImage} alt="First painting"></GatsbyImage>
+                    )}
+                    { (pageHero.imagethree.gatsbyImage) && (
+                      <GatsbyImage image={pageHero.imagethree.gatsbyImage} alt="First painting"></GatsbyImage>
+                    )}
+                    { (pageHero.imagefour.gatsbyImage) && (
+                      <GatsbyImage image={pageHero.imagefour.gatsbyImage} alt="First painting"></GatsbyImage>
+                    )}
+                    { (pageHero.imagefive.gatsbyImage) && (
+                      <GatsbyImage image={pageHero.imagefive.gatsbyImage} alt="First painting"></GatsbyImage>
+                    )}
+                    { (pageHero.imagesix.gatsbyImage) && (
+                      <GatsbyImage image={pageHero.imagesix.gatsbyImage} alt="First painting"></GatsbyImage>
+                    )}
                   </div>
                 </div>
               </div>
@@ -175,29 +180,31 @@ const Layout = ({ isHomePage, children }) => {
         </div>
       </div>
 
-      <div class="l-section">
-			  <div id="about" class="l-about-me">
-					<div class="c-about-me">
-						<div class="c-about-me__col-12">
-              <div class="c-about-content">
-                <div class="c-about-title">
-                  <h2 class="c-heading">{aboutMe.title}</h2>
+      <div className="l-section">
+			  <div id="about" className="l-about-me">
+					<div className="c-about-me">
+						<div className="c-about-me__col-12">
+              <div className="c-about-content">
+                <div className="c-about-title">
+                  <Title className="c-heading" children={aboutMe.title}/>
                 </div>
               </div>
 						</div>
 
-						<div class="c-about-me__col-6">
-              <div class="c-about-me__image">
-							  <GatsbyImage image={aboutMe.image.gatsbyImage} alt="First painting"></GatsbyImage>
+						<div className="c-about-me__col-6">
+              <div className="c-about-me__image">
+                { (aboutMe.image.gatsbyImage) && (
+							    <GatsbyImage image={aboutMe.image.gatsbyImage} alt="First painting"></GatsbyImage>
+                )}
               </div>
 						</div>
-            <div class="c-about-me__col-5">
-              <div class="c-about-me__boarder">
-                <div class="c-boarder"></div>
+            <div className="c-about-me__col-5">
+              <div className="c-about-me__boarder">
+                <div className="c-boarder"></div>
               </div>
-              <div class="c-about-text">
-                <div class="c-text">
-                  <p>{aboutMe.text}</p>
+              <div className="c-about-text">
+                <div className="c-text">
+                  <Paragraph children={aboutMe.text}/>
                 </div>
               </div>
             </div>
@@ -205,76 +212,84 @@ const Layout = ({ isHomePage, children }) => {
 				</div>
       </div>
 
-      <div class="l-section">
-        <div id="project" class="l-project">
-          <h2 class="c-heading c-heading--center">{ projectsTitle.title }</h2>
+      <div className="l-section">
+        <div id="project" className="l-project">
+          { (projectsTitle.title) && (
+            <h2 className="c-heading c-heading--center" dangerouslySetInnerHTML={{__html: projectsTitle.title }}/>
+          )}
           {
-              projects.map((project, index) => (
+            projects.map((project, index) => (
             
             
-            <div className="c-project c-project--border-bottom">
+              <div className="c-project c-project--border-bottom">
+                <div className="c-project__title">
+                  {/* <h2 class="c-title--project c-hide-desk"></h2> */}
+                </div>
 
+                <div className="c-project__work">
+                  <Title classname="c-title--project c-hide-mobile" childeren={project.title} />
+                </div>
 
-            <h1>{index ? 'c-project--border-bottom' : ''}</h1>
-            <div class="c-project__title">
-              <h2 class="c-title--project c-hide-desk"></h2>
-            </div>
+                <div className="c-project__image">
+                  <div className="c-project__image-container">
+                    { (project.gallery[0].gatsbyImage) && (
+                      <GatsbyImage image={project.gallery[0].gatsbyImage} alt="First painting"></GatsbyImage>
+                    )}
+                  </div>
+                </div>
 
-            <div class="c-project__work">
-              <h2 class="c-title--project c-hide-mobile">{project.title}</h2>
-            </div>
+                <div className="c-info__label">
+                  { (project.aboutLabel) && (
+                    <span dangerouslySetInnerHTML={{__html: project.aboutLabel }}/>
+                  )}
+                </div>
 
-            <div class="c-project__image">
-              <div class="c-project__image-container">
-
-                <GatsbyImage image={project.gallery[0].gatsbyImage} alt="First painting"></GatsbyImage>
+                <div className="c-info__item c-list">
+                  { (project.workList) && (
+                    <ul className="c-work__item c-list">
+                      {
+                        project.workList.map(work => (  
+                          <li dangerouslySetInnerHTML={{__html: work.listItem }}/>
+                        ))
+                      }
+                    </ul>
+                  )}
+                </div>
               </div>
-            </div>
-
-            <div class="c-info__label">
-              <span>{project.aboutLabel}</span>
-            </div>
-
-            <div class="c-info__item c-list">
-              <ul class="c-work__item c-list">
-              {
-                project.workList.map(work => (
-                  
-                  <li>{work.listItem}</li>
-                  ))              
-                }
-                </ul>
-            </div>
-
-
-
-          </div>
           ))}
         </div>
       </div>
 
-      <div class="l-section">
+      <div className="l-section">
 
-			  <div id="contact" class="l-contact">
-          <div class="c-contact">
-            <div class="c-contact__inner">
-              <div class="c-contact__container">  
-                <div class="c-contact__title">
-                  { <h2 class="c-title c-title--white">{contact.title}</h2>}
+			  <div id="contact" className="l-contact">
+          <div className="c-contact">
+            <div className="c-contact__inner">
+              <div className="c-contact__container">
+              { (contact.title) && (
+                <div className="c-contact__title">
+                  <h2 className="c-title c-title--white" dangerouslySetInnerHTML={{__html: contact.title }}/>
                 </div>
+              )}
 
-                <div class="c-contact__text">
-                  <div class="c-text c-text--white">
-                    <p>{contact.text}</p>
-                  </div>
+                <div className="c-contact__text">
+                  { (contact.text) && (
+                    <div className="c-text c-text--white">
+                        <p>{contact.text}</p>
+                    </div>
+                  )}
                 </div>
                 
-                <div class="c-contact-at">
-                  <div class="c-contact-at__item"><Link class="c-contact-at__item-link" to={email}><span><Mail/></span>{contact.email}</Link></div>
-
-                  <div class="c-contact-at__item"><Link class="c-contact-at__item-link" to={tele}><span><Tele/></span>{contact.telephone}</Link></div>
-
-                  <div class="c-contact-at__item"><Link class="c-contact-at__item-link" to={contact.instagram}><span><Instagram/></span>Instagram</Link></div>
+                <div className="c-contact-at">
+                  { (contact.email) && (
+                    <div className="c-contact-at__item"><Link className="c-contact-at__item-link" to={email}><span><Mail/></span>{contact.email}</Link></div>
+                  )}
+                  { (contact.telephone) && (
+                    <div className="c-contact-at__item"><Link className="c-contact-at__item-link" to={tele}><span><Tele/></span>{contact.telephone}</Link></div>
+                  )}
+                  { (contact.instagram) && (
+                    <div className="c-contact-at__item"><Link className="c-contact-at__item-link" to={contact.instagram}><span><Instagram/></span>Instagram</Link></div>
+                  )}
                 </div>
               </div>
             </div>
