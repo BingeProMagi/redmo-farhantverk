@@ -222,12 +222,9 @@ const Layout = ({ isHomePage, children }) => {
             
             
               <div className="c-project c-project--border-bottom">
-                <div className="c-project__title">
-                  {/* <h2 class="c-title--project c-hide-desk"></h2> */}
-                </div>
 
                 <div className="c-project__work">
-                  <Title classname="c-title--project c-hide-mobile" childeren={project.title} />
+                  <Title classname="c-title--project c-hide-mobile" children={project.title} />
                 </div>
 
                 <div className="c-project__image">
@@ -262,7 +259,7 @@ const Layout = ({ isHomePage, children }) => {
 
       <div className="l-section">
 
-			  <div id="contact" className="l-contact">
+			  <div id="kontakt" className="l-contact">
           <div className="c-contact">
             <div className="c-contact__inner">
               <div className="c-contact__container">

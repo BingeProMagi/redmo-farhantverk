@@ -563,6 +563,7 @@ h6 {
 
 .c-text p {
   font-size: var(--font-size-small);
+  font-weight: 300;
   line-height: var(--line-height-small);
 }
 
@@ -674,6 +675,7 @@ a:focus {
 .c-intro p {
   font-size: var(--font-size-small);
   line-height: var(--line-height-small);
+  font-weight: 300;
 }
 
 .c-button {
@@ -1181,6 +1183,7 @@ a:focus {
 .c-work__item {
   li {
     padding-bottom: calc(var(--gap) * 0.25);
+    font-weight: 300;
   }
 }
 
@@ -1206,8 +1209,7 @@ a:focus {
 .c-work__label, .c-info__label {
   font-size: var(--font-size-small);
   line-height: var(--line-height-small);
-  font-weight: 500;
-  text-transform: uppercase;
+  font-weight: 400;
 }
 
 .c-work__label {
