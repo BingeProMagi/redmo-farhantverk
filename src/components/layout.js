@@ -69,19 +69,19 @@ const Layout = ({ isHomePage, children }) => {
                 title
               }
             }
-            project_list {
-              title
-              project {
-                aboutLabel
-                fieldGroupName
-                title
-                gallery {
-                  gatsbyImage(aspectRatio: 1, width: 1200)
-                }
-                workList {
-                  listItem
-                }
+            services {
+              image {
+                gatsbyImage(aspectRatio: 1, width: 1200)
               }
+              label
+              serviceLabel
+              serviceList
+              serviceList2
+              serviceList3
+              serviceList4
+              serviceList5
+              serviceList6
+              title
             }
             instagram {
               instagram
@@ -97,10 +97,9 @@ const Layout = ({ isHomePage, children }) => {
   const contact = edges[0].node.contact_me.contact;
   const email = "mailto:"+contact.email;
   const tele = "tel:"+contact.telephone;
-  const projects = edges[0].node.project_list.project;
-  const projectsTitle = edges[0].node.project_list;
   const aboutMe = edges[0].node.aboutMe.aboutMe;
   const instagram = edges[0].node.instagram.instagram;
+  const services = edges[0].node.services;
 
   return (
     
@@ -214,46 +213,57 @@ const Layout = ({ isHomePage, children }) => {
 
       <div className="l-section">
         <div id="project" className="l-project">
-          { (projectsTitle.title) && (
-            <h2 className="c-heading c-heading--center" dangerouslySetInnerHTML={{__html: projectsTitle.title }}/>
+          { (services.title) && (
+            <h2 className="c-heading c-heading--center" dangerouslySetInnerHTML={{__html: services.title }}/>
           )}
-          {
-            projects.map((project, index) => (
-            
-            
-              <div className="c-project c-project--border-bottom">
+          <div className="c-project c-project--border-bottom">
 
-                <div className="c-project__work">
-                  <Title classname="c-title--project c-hide-mobile" children={project.title} />
-                </div>
+            <div className="c-project__work">
+              <Title classname="c-title--project c-hide-mobile" children={services.label} />
+            </div>
 
-                <div className="c-project__image">
-                  <div className="c-project__image-container">
-                    { (project.gallery[0].gatsbyImage) && (
-                      <GatsbyImage image={project.gallery[0].gatsbyImage} alt="First painting"></GatsbyImage>
-                    )}
-                  </div>
-                </div>
-
-                <div className="c-info__label">
-                  { (project.aboutLabel) && (
-                    <span dangerouslySetInnerHTML={{__html: project.aboutLabel }}/>
-                  )}
-                </div>
-
-                <div className="c-info__item c-list">
-                  { (project.workList) && (
-                    <ul className="c-work__item c-list">
-                      {
-                        project.workList.map(work => (  
-                          <li dangerouslySetInnerHTML={{__html: work.listItem }}/>
-                        ))
-                      }
-                    </ul>
-                  )}
-                </div>
+            <div className="c-project__image">
+              <div className="c-project__image-container">
+                { (services.image.gatsbyImage) && (
+                  <GatsbyImage image={services.image.gatsbyImage} alt="Services Image"></GatsbyImage>
+                )}
               </div>
-          ))}
+            </div>
+
+            <div className="c-info__label">
+              { (services.serviceLabel) && (
+                <span dangerouslySetInnerHTML={{__html: services.serviceLabel }}/>
+              )}
+            </div>
+
+            <div className="c-info__item c-list">
+                <ul className="c-work__item c-list">
+                  { (services.serviceList) && (
+                    <li dangerouslySetInnerHTML={{__html: services.serviceList }}/>
+                  )}
+
+                  { (services.serviceList2) && (
+                    <li dangerouslySetInnerHTML={{__html: services.serviceList2 }}/>
+                  )}
+
+                  { (services.serviceList3) && (
+                    <li dangerouslySetInnerHTML={{__html: services.serviceList3 }}/>
+                  )}
+
+                  { (services.serviceList4) && (
+                    <li dangerouslySetInnerHTML={{__html: services.serviceList4 }}/>
+                  )}
+
+                  { (services.serviceList5) && (
+                    <li dangerouslySetInnerHTML={{__html: services.serviceList5 }}/>
+                  )}
+
+                  { (services.serviceList6) && (
+                    <li dangerouslySetInnerHTML={{__html: services.serviceList6 }}/>
+                  )}
+                </ul>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -267,7 +277,6 @@ const Layout = ({ isHomePage, children }) => {
                   <h2 className="c-title c-title--white" dangerouslySetInnerHTML={{__html: contact.title }}/>
                 </div>
               )}
-
                 <div className="c-contact__text">
                   { (contact.text) && (
                     <div className="c-text c-text--white">
@@ -292,9 +301,6 @@ const Layout = ({ isHomePage, children }) => {
           </div>        
 				</div>
       </div> 
-
-      <footer>
-      </footer>
   </div>
   
   )
