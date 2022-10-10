@@ -10,9 +10,9 @@ import Mail from "../../content/mail.svg";
 import Heading from "./Heading";
 import Paragraph from "./Paragraph";
 import Title from "./Title";
+import Seo from "./seo";
 
 const Layout = ({ isHomePage, children }) => {
-  
   const {
     allWpPage: { edges },
   } = useStaticQuery(graphql`
@@ -100,10 +100,10 @@ const Layout = ({ isHomePage, children }) => {
   const aboutMe = edges[0].node.aboutMe.aboutMe;
   const instagram = edges[0].node.instagram.instagram;
   const services = edges[0].node.services;
-
+  <Seo />
   return (
-    
     <div className="global-wrapper">
+      <Seo lang="sv" />
       <div className="l-site-footer">
         <header className="l-site-footer__inner">
           <div className="c-logo"><Logo/></div>

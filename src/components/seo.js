@@ -80,7 +80,7 @@ const Seo = ({ description, lang, meta, title }) => {
 Seo.defaultProps = {
   lang: `sv`,
   meta: [],
-  description: ``,
+  description: `Byggnadsvårdare med inriktning mot kulturmåleri som utför projekt med äggoljetempera, linoljefärg, lumppapp och färgsättning. Jag målar med traditionella, livfulla och giftfria färger i gamla och nya miljöer. Traditionella färger har inte endast ett kulturhistoriskt värde, det är samtidens och framtiden färg!`,
 }
 
 Seo.propTypes = {
