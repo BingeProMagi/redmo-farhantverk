@@ -46,7 +46,7 @@ const Seo = ({ description, lang, meta, title }) => {
         },
         {
           property: `og:title`,
-          content: title,
+          content: defaultTitle,
         },
         {
           property: `og:description`,
@@ -66,7 +66,7 @@ const Seo = ({ description, lang, meta, title }) => {
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: defaultTitle,
         },
         {
           name: `twitter:description`,
